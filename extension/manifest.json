@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "WARREN - Decentralized Web Access",
+  "version": "1.3.0",
+  "description": "Access WARREN on-chain sites directly from the blockchain. Works even when centralized servers are down.",
+  "author": "WARREN",
+  "homepage_url": "https://thewarren.app",
+  "minimum_chrome_version": "110",
+
+  "permissions": [
+    "storage",
+    "declarativeNetRequest"
+  ],
+
+  "host_permissions": [
+    "*://*.thewarren.app/*",
+    "*://*.megawarren.xyz/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "omnibox": {
+    "keyword": "w"
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "web_accessible_resources": [{
+    "resources": [
+      "viewer/viewer.html",
+      "viewer/viewer.js",
+      "viewer/viewer.css",
+      "viewer/sandbox.html"
+    ],
+    "matches": ["<all_urls>"]
+  }],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+  "sandbox": {
+    "pages": ["viewer/sandbox.html"]
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "warren_redirect",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}

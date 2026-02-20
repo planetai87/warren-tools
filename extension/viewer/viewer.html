@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WARREN</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <div id="loader-container">
+    <h1 class="title">WARREN</h1>
+    <p class="subtitle" id="siteName">Loading...</p>
+    <div class="phase-indicator">
+      <span class="indicator-dot"></span>
+      <span id="phaseText">Connecting...</span>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="progress-text" id="progressText">0%</div>
+    </div>
+    <div class="source-badge" id="sourceBadge"></div>
+  </div>
+
+  <div id="content" style="display:none;"></div>
+  <div id="profile-container" style="display:none;">
+    <h1 class="profile-title">WARREN</h1>
+    <div class="profile-card">
+      <img class="profile-avatar" id="profileAvatar" style="display:none;" alt="avatar" />
+      <div class="profile-name" id="profileName"></div>
+      <div class="profile-badge">.MEGA DOMAIN</div>
+
+      <p class="profile-bio" id="profileBio" style="display:none;"></p>
+
+      <div class="profile-row">
+        <span class="profile-label">Owner</span>
+        <a class="profile-value" id="profileOwner" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="profile-row">
+        <span class="profile-label">Expires</span>
+        <span class="profile-value" id="profileExpires">-</span>
+      </div>
+
+      <div class="profile-links" id="profileLinks" style="display:none;"></div>
+
+      <div class="profile-divider"></div>
+      <div class="profile-status">
+        <span class="status-dot inactive"></span>
+        No Warren site connected
+      </div>
+      <p class="profile-desc">
+        This .mega domain doesn't have a permanent on-chain site yet.
+        Deploy your site on WARREN to make it accessible forever.
+      </p>
+      <a class="profile-cta" href="https://thewarren.app/dashboard" target="_blank" rel="noopener">
+        Deploy on WARREN
+      </a>
+    </div>
+    <button class="back-btn" id="profileBackBtn">Go Back</button>
+  </div>
+  <div id="error-container" style="display:none;">
+    <h1 class="error-title">WARREN</h1>
+    <div class="error-icon">&#9888;</div>
+    <p class="error-message" id="errorMessage"></p>
+    <button class="back-btn" id="backBtn">Go Back</button>
+  </div>
+
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>

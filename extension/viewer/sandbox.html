@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>* { margin: 0; padding: 0; }</style>
+</head>
+<body>
+  <script>
+    // Container file map (path → {data: number[], mimeType: string})
+    var _containerFiles = {};
+    var _containerId = null;
+
+    function normalizePath(url) {
+      if (!url || url.startsWith("http") || url.startsWith("blob:") || url.startsWith("data:")) return null;
+      var path = url.replace(/^\.\//, "");
+      if (!path.startsWith("/")) path = "/" + path;
+      return path;
+    }
+
+    window.addEventListener("message", function(e) {
+      if (e.data && e.data.type === "RENDER_HTML") {
+        var html = e.data.html;
+        _containerId = e.data.containerId;
+
+        // Store container files if provided
+        if (e.data.files) {
+          _containerFiles = e.data.files;
+
+          // Override fetch to serve container files
+          var _origFetch = window.fetch;
+          window.fetch = function(url, opts) {
+            var path = normalizePath(typeof url === "string" ? url : null);
+            if (path) {
+              var file = _containerFiles[path];
+              if (file) {
+                var bytes = new Uint8Array(file.data);
+                var blob = new Blob([bytes], { type: file.mimeType });
+                return Promise.resolve(new Response(blob, {
+                  status: 200,
+                  headers: { "Content-Type": file.mimeType }
+                }));
+              }
+            }
+            return _origFetch.call(window, url, opts);
+          };
+        }
+
+        // Extract external script URLs and replace with placeholders
+        var scripts = [];
+        html = html.replace(/<script\s+src=["']([^"']+)["'][^>]*><\/script>/gi, function(match, url) {
+          scripts.push(url);
+          return '<script id="__ws' + (scripts.length - 1) + '"><\/script>';
+        });
+
+        document.open();
+        document.write(html);
+        document.close();
+
+        // Replace image src with blob URLs from container files
+        if (e.data.files) {
+          setTimeout(function() {
+            document.querySelectorAll("img[src]").forEach(function(img) {
+              var path = normalizePath(img.getAttribute("src"));
+              if (path && _containerFiles[path]) {
+                var file = _containerFiles[path];
+                var bytes = new Uint8Array(file.data);
+                var blob = new Blob([bytes], { type: file.mimeType });
+                img.src = URL.createObjectURL(blob);
+              }
+            });
+          }, 100);
+        }
+
+        // Intercept link clicks for container navigation
+        document.addEventListener("click", function(ev) {
+          var a = ev.target.closest("a");
+          if (!a) return;
+          var href = a.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#") || href.startsWith("mailto:")) return;
+
+          var path = normalizePath(href);
+          if (path && _containerId != null) {
+            ev.preventDefault();
+            // Notify parent to navigate to another container file
+            window.parent.postMessage({
+              type: "CONTAINER_NAVIGATE",
+              containerId: _containerId,
+              path: path
+            }, "*");
+          }
+        });
+
+        // Load scripts via inline <script> tags (no eval)
+        (async function() {
+          for (var i = 0; i < scripts.length; i++) {
+            try {
+              var res = await fetch(scripts[i]);
+              var code = await res.text();
+              var scriptEl = document.createElement("script");
+              scriptEl.textContent = code;
+              document.head.appendChild(scriptEl);
+            } catch(e) {
+              console.warn("[sandbox] Failed to load script:", scripts[i], e);
+            }
+          }
+        })();
+      }
+    });
+  </script>
+</body>
+</html>

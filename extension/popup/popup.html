@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, monospace;
+      background: #0a0a0a;
+      color: #fff;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #00ff41;
+      letter-spacing: 4px;
+    }
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #111;
+      color: #fff;
+      font-family: inherit;
+    }
+    input:focus {
+      outline: none;
+      border-color: #00ff41;
+    }
+    button {
+      padding: 10px 16px;
+      background: #00ff41;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    button:hover { background: #00cc33; }
+    .hint {
+      font-size: 11px;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .hint code {
+      background: #1a1a1a;
+      padding: 1px 4px;
+      border-radius: 2px;
+      color: #00ff41;
+    }
+    .divider {
+      border-top: 1px solid #1a1a1a;
+      margin: 16px 0;
+    }
+    .history-title {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .history-item {
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .history-item:hover { background: #111; }
+    .history-item .name { color: #ccc; }
+    .history-item .type {
+      font-size: 10px;
+      color: #555;
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .empty { color: #333; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>WARREN</h1>
+
+  <div class="input-group">
+    <input type="text" id="siteInput" placeholder="site name or token ID">
+    <button id="goBtn">Go</button>
+  </div>
+
+  <p class="hint">
+    <code>bread.mega</code> MegaName &middot;
+    <code>mysite</code> DNS &middot;
+    <code>123</code> token ID &middot;
+    <code>c1</code> container
+  </p>
+
+  <div class="divider"></div>
+
+  <div id="history">
+    <div class="history-title">Recent</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

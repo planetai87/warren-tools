@@ -1,0 +1,354 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', monospace;
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Loader */
+#loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.title {
+  font-size: 32px;
+  letter-spacing: 8px;
+  color: #00ff41;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.phase-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #888;
+}
+
+.indicator-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff41;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.progress-container {
+  width: 300px;
+  max-width: 80vw;
+}
+
+.progress-bar-wrapper {
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #00ff41;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.source-badge {
+  margin-top: 16px;
+  font-size: 11px;
+  color: #444;
+  padding: 4px 12px;
+  border: 1px solid #222;
+  border-radius: 12px;
+}
+
+/* Content */
+#content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#content iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
+
+#content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#content video,
+#content audio {
+  max-width: 100%;
+  display: block;
+  margin: 40px auto;
+}
+
+/* Warren header bar */
+.warren-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #111;
+  border-bottom: 1px solid #222;
+  font-size: 12px;
+}
+
+.warren-logo {
+  color: #00ff41;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.warren-site-name {
+  color: #888;
+  flex: 1;
+}
+
+.warren-badge {
+  color: #555;
+  padding: 2px 8px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* MegaName Profile */
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 24px;
+  letter-spacing: 6px;
+  color: #333;
+  margin-bottom: 32px;
+}
+
+.profile-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #222;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 24px;
+  color: #00ff41;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.profile-badge {
+  display: inline-block;
+  font-size: 10px;
+  color: #555;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 16px;
+}
+
+.profile-bio {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  max-width: 320px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.profile-label {
+  font-size: 12px;
+  color: #555;
+}
+
+.profile-value {
+  font-size: 12px;
+  color: #888;
+  font-family: monospace;
+  text-decoration: none;
+}
+
+.profile-value:hover {
+  color: #00ff41;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.profile-link {
+  font-size: 11px;
+  color: #888;
+  padding: 4px 10px;
+  border: 1px solid #222;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-link:hover {
+  border-color: #00ff41;
+  color: #00ff41;
+}
+
+.link-icon {
+  font-size: 12px;
+}
+
+.profile-divider {
+  height: 1px;
+  background: #222;
+  margin: 16px 0;
+}
+
+.profile-status {
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-dot.inactive {
+  background: #555;
+}
+
+.profile-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.profile-cta {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #00ff41;
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.profile-cta:hover {
+  background: #00cc33;
+}
+
+/* Error */
+#error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  text-align: center;
+}
+
+.error-title {
+  font-size: 24px;
+  letter-spacing: 6px;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.error-message {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 24px;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.back-btn {
+  padding: 8px 24px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #888;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.back-btn:hover {
+  border-color: #00ff41;
+  color: #00ff41;
+}
