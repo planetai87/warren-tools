@@ -1,7 +1,7 @@
 ---
 name: warren-deploy
 description: Deploy websites and files permanently on MegaETH mainnet using SSTORE2. Agents use their own wallet and pay gas.
-metadata: {"openclaw":{"emoji":"⛓️","homepage":"https://thewarren.app","source":"https://github.com/planetai87/onchain-loader","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"⛓️","homepage":"https://thewarren.app","source":"https://github.com/planetai87/warren-tools","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
 user-invocable: true
 ---
 

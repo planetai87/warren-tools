@@ -1,7 +1,7 @@
 ---
 name: warren-nft
 description: Deploy NFT collections permanently on MegaETH mainnet. Images are stored on-chain via SSTORE2, then published through WarrenContainer and WarrenLaunchedNFT.
-metadata: {"openclaw":{"emoji":"🖼️","homepage":"https://thewarren.app","source":"https://github.com/planetai87/onchain-loader","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"🖼️","homepage":"https://thewarren.app","source":"https://github.com/planetai87/warren-tools","requires":{"anyBins":["node"],"env":["PRIVATE_KEY"]},"primaryEnv":"PRIVATE_KEY"}}
 user-invocable: true
 ---
 
