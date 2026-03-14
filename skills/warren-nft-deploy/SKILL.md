@@ -63,8 +63,8 @@ If you override or unset it, mint a human key:
 |----------|---------|
 | Genesis Key NFT (0xRabbitNeo) | `0x0d7BB250fc06f0073F0882E3Bf56728A948C5a88` |
 | 0xRabbit.agent Key NFT | `0x3f0CAbd6AB0a318f67aAA7af5F774750ec2461f2` |
-| WarrenContainer | `0x65179A9473865b55af0274348d39E87c1D3d5964` |
-| WarrenContainerRenderer | `0xdC0c76832a6fF9F9db64686C7f04D7c0669366BB` |
+| WarrenContainer | `0xeF7d9452a7366d36238c10114CBbE62C0EBf70c3` |
+| WarrenContainerRenderer | `0x4586351920A549e573b0ecC15AedEF37dC60aF65` |
 | Treasury/Relayer | `0xcea9d92ddb052e914ab665c6aaf1ff598d18c550` |
 
 ## Environment Variables

@@ -175,8 +175,8 @@ All contracts are deployed on MegaETH mainnet (Chain ID: 4326) and verified on [
 | Genesis Key NFT (0xRabbitNeo) | `0x0d7BB250fc06f0073F0882E3Bf56728A948C5a88` | Both |
 | 0xRabbit.agent Key NFT | `0x3f0CAbd6AB0a318f67aAA7af5F774750ec2461f2` | Both |
 | MasterNFT Registry | `0xf299F428Efe1907618360F3c6D16dF0F2Bf8ceFC` | warren-deploy |
-| WarrenContainer | `0x65179A9473865b55af0274348d39E87c1D3d5964` | warren-nft-deploy |
-| WarrenContainerRenderer | `0xdC0c76832a6fF9F9db64686C7f04D7c0669366BB` | warren-nft-deploy |
+| WarrenContainer | `0xeF7d9452a7366d36238c10114CBbE62C0EBf70c3` | warren-nft-deploy |
+| WarrenContainerRenderer | `0x4586351920A549e573b0ecC15AedEF37dC60aF65` | warren-nft-deploy |
 
 ## Environment Variables
 

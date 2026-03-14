@@ -10,7 +10,7 @@ export const CONFIG = {
   // Contract addresses (update after deployment)
   DNS_CONTRACT: "0x3f9EaD44f51690b18bd491Fc5A04786121f20D5b",           // WarrenDNS address
   MASTER_NFT_ADDRESS: "0xf299F428Efe1907618360F3c6D16dF0F2Bf8ceFC",     // MasterNFT registry (V2)
-  WARREN_CONTAINER_ADDRESS: "0x65179A9473865b55af0274348d39E87c1D3d5964", // WarrenContainer (V2)
+  WARREN_CONTAINER_ADDRESS: "0xeF7d9452a7366d36238c10114CBbE62C0EBf70c3", // WarrenContainer (V3)
 
   // Multicall3 (universal address)
   MULTICALL3_ADDRESS: "0xcA11bde05977b3631167028862bE2a173976CA11",
